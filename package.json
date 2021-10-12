@@ -1,0 +1,35 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErkhanDV/snake.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ErkhanDV/snake/issues"
+  },
+  "homepage": "https://github.com/ErkhanDV/snake#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
+    "babelify": "^10.0.0",
+    "browserify": "^17.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.14.9",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "gulp": "^4.0.2"
+  }
+}
