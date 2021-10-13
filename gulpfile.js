@@ -11,4 +11,3 @@ gulp.task('default', function() {
   .pipe(source('index.js'))
   .pipe(gulp.dest('./src/js'))
 })
-

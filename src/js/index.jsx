@@ -1,8 +1,18 @@
+class App extends React.Component {
+  render() {
+    return(
+      <div>
+        <h1>Let's play!</h1>
+      </div>
+    );
+  }
+}
+
 document.addEventListener('DOMContentLoaded', (evt) => {
   ReactDOM.render(
-    <div>
-      <h1>Let's play!</h1>
-    </div>,
-    document.getElementById('app') 
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById('app')
   );
 });
