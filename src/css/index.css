@@ -2,6 +2,20 @@ html {
   height: 100vh;
   background: linear-gradient(to bottom, #48C9B0, #45B39D);
 }
+
 div {
   text-align: center;
+}
+
+.square-empty {
+  background: #f0f0f0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+  display: inline-block;
+}
+
+.row {
+  padding-bottom: 0px;
+  height: 20px;
 }
