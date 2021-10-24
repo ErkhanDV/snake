@@ -47,12 +47,79 @@ class App extends React.Component {
       }
     }
 
+    this.snakeCoordinates = [[5, 0], [5, 1], [5, 2]];
+
+    for (let i = 0; i < this.snakeCoordinates.length; i++) {
+      fieldData[this.snakeCoordinates[i][0]][this.snakeCoordinates[i][1]] = {
+        type: 'snake'
+      };
+    } // this.timer = setInterval(
+    //   () => this.movingRight(),
+    //   2000
+    // );
+
+
     this.state = {
       fieldData: fieldData
     };
   }
 
+  movingRight() {
+    let snakeHead = [this.snakeCoordinates[this.snakeCoordinates.length - 1][0], this.snakeCoordinates[this.snakeCoordinates.length - 1][1] + 1];
+    this.movingSnake(snakeHead);
+  }
+
+  movingLeft() {
+    let snakeHead = [this.snakeCoordinates[this.snakeCoordinates.length - 1][0], this.snakeCoordinates[this.snakeCoordinates.length - 1][1] - 1];
+    this.movingSnake(snakeHead);
+  }
+
+  movingUp() {
+    let snakeHead = [this.snakeCoordinates[this.snakeCoordinates.length - 1][0] - 1, this.snakeCoordinates[this.snakeCoordinates.length - 1][1]];
+    this.movingSnake(snakeHead);
+  }
+
+  movingDown() {
+    let snakeHead = [this.snakeCoordinates[this.snakeCoordinates.length - 1][0] + 1, this.snakeCoordinates[this.snakeCoordinates.length - 1][1]];
+    this.movingSnake(snakeHead);
+  }
+
+  movingSnake(snakeHead) {
+    this.setState(() => {
+      console.log(`This is snakeCoordinates at moving snake between 104 n 105 ${this.snakeCoordinates}`);
+      console.log(`------------------`);
+      let newFieldData = JSON.parse(JSON.stringify(this.state.fieldData));
+      newFieldData[this.snakeCoordinates[0][0]][this.snakeCoordinates[0][1]] = {
+        type: 'empty'
+      };
+      this.snakeCoordinates.splice(0, 1);
+      this.snakeCoordinates.push(snakeHead);
+      newFieldData[snakeHead[0]][snakeHead[1]] = {
+        type: 'snake'
+      };
+      console.log(`This is snakeCoordinates at moving snake between 111 n 112 ${this.snakeCoordinates}`);
+      console.log(`------------------`);
+      return {
+        fieldData: newFieldData
+      };
+    });
+  }
+
+  componentDidMount() {
+    // this.timer = setInterval(
+    //   () => this.movingRight(),
+    //   2000
+    // );
+    this.movingDown();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
   render() {
+    console.log(`This is snakeCoordinates at RENDER ${this.snakeCoordinates}`);
+    console.log(`------------------`);
     return React.createElement("div", null, React.createElement("h1", null, "Let's play!"), React.createElement(Field, {
       data: this.state.fieldData
     }));

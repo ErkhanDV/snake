@@ -19,3 +19,11 @@ div {
   padding-bottom: 0px;
   height: 20px;
 }
+
+.square-snake {
+  background: green;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+  display: inline-block;
+}
