@@ -109,7 +109,7 @@ class App extends React.Component {
 
   componentDidMount() {
     document.addEventListener('keydown', this.keyPress);
-    this.timer = setInterval(() => this.snakeDirection(), 500);
+    this.timer = setInterval(() => this.snakeDirection(), 600);
   }
 
   componentWillUnmount() {

@@ -128,7 +128,7 @@ class App extends React.Component {
     document.addEventListener('keydown', this.keyPress);
     this.timer = setInterval(() =>
       this.snakeDirection(),
-      500
+      600
     )
   }
 
