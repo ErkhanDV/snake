@@ -36,7 +36,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.keyPress = this.keyPress.bind(this);
-    this.snakeDirection = this.snakeDirection.bind(this);
+    this.snakeDirection = this.movingRight;
     let fieldData = [];
 
     for (let i = 0; i < 10; i++) {
@@ -60,10 +60,6 @@ class App extends React.Component {
     this.state = {
       fieldData: fieldData
     };
-  }
-
-  snakeDirection() {
-    this.direction = this.movingRight();
   }
 
   keyPress(evt) {
