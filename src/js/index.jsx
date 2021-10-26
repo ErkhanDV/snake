@@ -50,6 +50,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.keyPress = this.keyPress.bind(this);
+    this.snakeDirection = this.snakeDirection.bind(this);
 
     let fieldData = [];
     for (let i = 0; i < 10; i++) {
@@ -69,14 +70,19 @@ class App extends React.Component {
     };
   }
 
+  snakeDirection() {
+    this.direction = this.movingRight()
+  }
+
   keyPress(evt) {
-    const keyBind = {
+    const KEYBIND = {
       ArrowUp: () => this.movingUp(),
       ArrowRight: () => this.movingRight(),
       ArrowDown: () => this.movingDown(),
       ArrowLeft: () => this.movingLeft()
     };
-    return keyBind[evt.code]();
+    this.snakeDirection = KEYBIND[evt.code];
+
   }
 
   movingRight() {
@@ -123,11 +129,15 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener('keydown', this.keyPress, false);
+    document.addEventListener('keydown', this.keyPress);
+    this.timer = setInterval(() =>
+      this.snakeDirection(),
+      500
+    )
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.keyPress, false);
+    document.removeEventListener('keydown', this.keyPress);
   }
 
   render() {
